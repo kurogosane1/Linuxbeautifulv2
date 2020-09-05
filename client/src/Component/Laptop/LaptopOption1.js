@@ -17,6 +17,7 @@ export default function LaptopOption1() {
 		RAM: RAM[0].name,
 		GPU: GPU[0].name,
 		storage: storage[0].name,
+		Total: 0,
 		id: uuidv4(),
 	});
 	const [Total, setTotal] = useState({
@@ -24,7 +25,7 @@ export default function LaptopOption1() {
 		RAM: RAM[0].cost,
 		GPU: GPU[0].cost,
 		storage: storage[0].cost,
-		id: uuidv4(),
+		id: Laptop.id,
 	});
 
 	const handleClick = (e) => {
@@ -36,14 +37,8 @@ export default function LaptopOption1() {
 	};
 
 	const addToCart = async (e) => {
-		// console.log(Laptop);
-		// console.log(Total);
 		await dispatch({ type: 'ADD_CART', cart: Laptop });
 		await dispatch2({ type: 'ADD_CART_TOTAL', cart: Total });
-		// dispatch2({ type: "ADD_CART_TOTAL", ...Total });
-		// dispatch1({ type: "ADD_CART_ITEM", item: Laptop });
-		// dispatch2({type:"ADD_CART_TOTAL", [{ ...cartTotal, ...Total }]});
-		// addCart(Laptop);
 		await history.push('/Cart');
 	};
 
