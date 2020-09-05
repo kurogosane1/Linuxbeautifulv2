@@ -20,13 +20,5 @@
   "devDependencies": {
     "nodemon": "^2.0.4"
   },
-  "proxy": "http://localhost:4000",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/kurogosane1/LinuxBeautiful.git"
-  },
-  "bugs": {
-    "url": "https://github.com/kurogosane1/LinuxBeautiful/issues"
-  },
-  "homepage": "https://github.com/kurogosane1/LinuxBeautiful#readme"
+  "proxy": "http://localhost:4000"
 }
