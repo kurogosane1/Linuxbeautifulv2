@@ -8,7 +8,7 @@ import LaptopOption2 from "./LaptopOption2";
 
 export default function Laptop() {
   let { path, url } = useRouteMatch();
-  console.log(path, url);
+  
   return (
     <div className="laptopsection">
       <div className="sub-nav">
