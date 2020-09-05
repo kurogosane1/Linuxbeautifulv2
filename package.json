@@ -1,0 +1,32 @@
+{
+  "name": "linuxbeautiful",
+  "version": "2.0.0",
+  "description": "A beautiful custom linux site",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "syed saad khurshid",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mysql2": "^2.1.0",
+    "sequelize": "^6.3.4"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  },
+  "proxy": "http://localhost:4000",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kurogosane1/LinuxBeautiful.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kurogosane1/LinuxBeautiful/issues"
+  },
+  "homepage": "https://github.com/kurogosane1/LinuxBeautiful#readme"
+}
