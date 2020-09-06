@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, NavLink, useRouteMatch, Switch } from "react-router-dom";
+import { Route, NavLink, useRouteMatch } from "react-router-dom";
 import LaptopOption1 from "./LaptopOption1";
 import LaptopBuynow from "./LaptopBuynow";
 import Overview from "./Overview";

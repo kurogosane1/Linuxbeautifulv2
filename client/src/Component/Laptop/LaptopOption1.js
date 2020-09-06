@@ -9,7 +9,6 @@ export default function LaptopOption1() {
 	let history = useHistory();
 	const { Processor, RAM, GPU, storage } = useContext(LaptopContext);
 	const { dispatch } = useContext(CartContext);
-	// const { Cart, addCart } = useContext(CartContext);
 	const { dispatch2 } = useContext(CartContext);
 
 	const [Laptop, setLaptop] = useState({
