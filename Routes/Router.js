@@ -5,6 +5,7 @@ const Storage = require('../models/storage');
 const GPU = require('../models/graphics');
 const RAM = require('../models/ram');
 const Processor = require('../models/Processor');
+const auth = require('../Controller/authController');
 
 router.get('/', (req, res) => {
 	res.send('hello world');
@@ -17,5 +18,7 @@ router.get('/user', async (req, res) => {
 		})
 		.catch((err) => console.log(err));
 });
+
+router.post('/Login', auth.login_post);
 
 module.exports = router;

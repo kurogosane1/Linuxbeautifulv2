@@ -1,5 +1,6 @@
 const { Sequelize, DataTypes } = require('sequelize');
 const db = require('../controller/Connection');
+const bcrypt = require('bcryptjs');
 
 const Users = db.define('Users', {
 	id: {
@@ -46,6 +47,8 @@ const Users = db.define('Users', {
 		type: DataTypes.DATE,
 	},
 });
+
+const salt = bcrypt.genSalt(10);
 
 Users.sync().then(() => {
 	Users.bulkCreate([
