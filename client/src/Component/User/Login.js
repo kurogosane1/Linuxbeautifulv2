@@ -22,15 +22,23 @@ export default function Login() {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		console.log(user);
-		axios.post('/login', user).then((res) => {
-			console.log(res.headers);
-			if (res.status === 202) {
-				localStorage.setItem('token', res.headers.authtoken);
+		const check = localStorage.getItem('token');
+		if (check === null || check === '') {
+			axios.post('/login', user).then((res) => {
+				console.log(res.headers);
+				if (res.status === 202) {
+					localStorage.setItem('token', res.headers.authtoken);
+					history.push(`/${res.data.id}`);
+				} else {
+					setAlert(!alert);
+				}
+			});
+		} else {
+			axios.post('/login', user).then((res) => {
 				history.push(`/${res.data.id}`);
-			} else {
-				setAlert(!alert);
-			}
-		});
+			});
+		}
+
 		console.log(resp);
 	};
 	return (
