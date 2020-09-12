@@ -7,12 +7,15 @@ const Users = require('../models/user.js');
 dotenv.config();
 
 module.exports.signup_post = async (req, res) => {
+	console.log(req.body);
 	//Hash Password
 	const salt = await bcrypt.genSalt(10);
 	const hashPassword = await bcrypt.hash(req.body.password, salt);
 
 	//check if email address exists
-	const emailExists = await Users.findOne({ where: { email: req.body.email } });
+	const emailExists = await Users.findOne({
+		where: { email: req.body.email },
+	});
 	console.log(emailExists);
 
 	if (emailExists === null) {
@@ -51,7 +54,10 @@ module.exports.login_post = async (req, res) => {
 				{ id: user.id, exp: Math.floor(Date.now() / 1000) - 30 },
 				process.env.TOKEN_SECRET
 			);
-			await res.header('auth-token', token).send({token:token});
+			await res
+				.status(202)
+				.header('authToken', token)
+				.send({ id: user.id });
 		}
 	}
 };

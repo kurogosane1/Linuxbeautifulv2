@@ -19,6 +19,7 @@ router.get('/user', async (req, res) => {
 		.catch((err) => console.log(err));
 });
 
-router.post('/Login', auth.login_post);
+router.post('/login', auth.login_post);
+router.post('/register', auth.signup_post);
 
 module.exports = router;
