@@ -2,8 +2,10 @@ import React, { useState, useContext, useEffect } from 'react';
 import VS from '../Assets/DesktopEnv.svg';
 import { CartContext } from '../Store/CartStore';
 
+
 export default function Cart() {
 	const { Cart, cartTotal, dispatch, dispatch2 } = useContext(CartContext);
+
 	const [totalamt, setTotalamt] = useState(0);
 	useEffect(() => {
 		const amt = cartTotal

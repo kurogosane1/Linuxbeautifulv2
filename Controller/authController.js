@@ -28,7 +28,7 @@ module.exports.signup_post = async (req, res) => {
 			email: req.body.email,
 			password: hashPassword,
 		})
-			.then((submit) => res.send(submit))
+			.then((submit) => res.send({ id: submit.id }))
 			.catch((err) => console.log(err));
 	} else {
 		return res.send('email already exists');
@@ -54,10 +54,7 @@ module.exports.login_post = async (req, res) => {
 				{ id: user.id, exp: Math.floor(Date.now() / 1000) - 30 },
 				process.env.TOKEN_SECRET
 			);
-			await res
-				.status(202)
-				.header('authToken', token)
-				.send({ id: user.id });
+			await res.status(202).header('authToken', token).send({ id: user.id });
 		}
 	}
 };

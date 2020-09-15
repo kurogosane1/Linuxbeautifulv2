@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
-import { Link,  } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+import { Link, useHistory } from 'react-router-dom';
 import axios from 'axios';
+import { UserContext } from '../../Store/userStore';
 
 export default function NewUser() {
-
+	const { setUsers } = useContext(UserContext);
+	let history = useHistory();
 	const [user, setUser] = useState({
 		firstname: '',
 		lastname: '',
@@ -19,7 +21,7 @@ export default function NewUser() {
 		setUser({ ...user, [e.target.name]: e.target.value });
 	};
 
-	const youtest = () => {
+	const youtest = async () => {
 		const User = {
 			firstname: user.firstname,
 			lastname: user.lastname,
@@ -29,10 +31,12 @@ export default function NewUser() {
 			email: user.email,
 			password: user.password,
 		};
-		axios
+		await axios
 			.post('/register', User)
 			.then((res) => {
-				console.log(res);
+				localStorage.setItem('token', res.headers.authtoken);
+				setUsers({ type: 'LOG_USER_IN' });
+				history.push(`/${res.data.id}`);
 			})
 			.catch((err) => console.log(err));
 	};

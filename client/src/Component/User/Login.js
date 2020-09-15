@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import axios from 'axios';
+import { UserContext } from '../../Store/userStore';
 
 export default function Login() {
 	const history = useHistory();
-
+	const { setUsers } = useContext(UserContext);
 	const [user, setUser] = useState({
 		email: '',
 		password: '',
@@ -28,6 +29,7 @@ export default function Login() {
 				console.log(res.headers);
 				if (res.status === 202) {
 					localStorage.setItem('token', res.headers.authtoken);
+					setUsers({ type: 'LOG_USER_IN' });
 					history.push(`/${res.data.id}`);
 				} else {
 					setAlert(!alert);
