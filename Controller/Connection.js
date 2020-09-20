@@ -1,4 +1,4 @@
-const Sequelize = require('sequelize');
+const { Sequelize } = require('sequelize');
 const dotenv = require('dotenv');
 
 dotenv.config();
@@ -13,5 +13,5 @@ const sequelize = new Sequelize(
 	}
 );
 
-sequelize.sync({ force: true });
+sequelize.sync();
 module.exports = sequelize;

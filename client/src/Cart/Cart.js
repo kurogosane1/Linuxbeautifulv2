@@ -25,12 +25,12 @@ export default function Cart() {
 		setTotalamt(amt);
 	}, [cartTotal]);
 
-	const checkUser = () => {
-		const token = localStorage.getItem('token');
+	const checkUser = async () => {
+		const token = await localStorage.getItem('token');
 		if (token === null || token === '') {
 			history.push('/login');
 		} else {
-			console.log('Do something');
+			console.log("There is something wrong")
 		}
 	};
 

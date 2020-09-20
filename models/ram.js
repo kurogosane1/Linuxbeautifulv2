@@ -1,7 +1,7 @@
-const { Sequelize, DataTypes } = require('sequelize');
-const db = require('../controller/Connection');
+const { DataTypes } = require('sequelize');
+const sequelize = require('../controller/Connection');
 
-const RAM = db.define('RAM', {
+const RAM = sequelize.define('RAM', {
 	id: {
 		type: DataTypes.STRING,
 		allowNull: false,

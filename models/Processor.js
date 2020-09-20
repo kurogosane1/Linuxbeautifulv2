@@ -1,7 +1,7 @@
-const { Sequelize, DataTypes } = require('sequelize');
-const db = require('../controller/Connection');
+const { DataTypes } = require('sequelize');
+const sequelize = require('../controller/Connection');
 
-const Processor = db.define('Processor', {
+const Processor = sequelize.define('Processor', {
 	id: {
 		type: DataTypes.STRING,
 		allowNull: false,

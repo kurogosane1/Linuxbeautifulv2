@@ -1,7 +1,7 @@
-const { Sequelize, DataTypes } = require('sequelize');
-const db = require('../controller/Connection');
+const { DataTypes } = require('sequelize');
+const sequelize = require('../controller/Connection');
 
-const GPU = db.define('GPU', {
+const GPU = sequelize.define('GPU', {
 	id: {
 		type: DataTypes.STRING,
 		allowNull: false,

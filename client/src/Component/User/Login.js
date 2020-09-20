@@ -2,10 +2,12 @@ import React, { useState, useContext } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import axios from 'axios';
 import { UserContext } from '../../Store/userStore';
+import { CartContext } from '../../Store/CartStore';
 
 export default function Login() {
 	const history = useHistory();
 	const { setUsers } = useContext(UserContext);
+	const { Cart } = useContext(CartContext);
 	const [user, setUser] = useState({
 		email: '',
 		password: '',
@@ -29,7 +31,10 @@ export default function Login() {
 				if (res.status === 202) {
 					localStorage.setItem('token', res.headers.authtoken);
 					setUsers({ type: 'LOG_USER_IN' });
-					history.push(`/${res.data.id}`);
+					// history.push(`/${res.data.id}`);
+					if (Cart != null) {
+						history.goBack();
+					}
 				} else {
 					setAlert(true);
 				}
@@ -64,11 +69,7 @@ export default function Login() {
 						name="password"
 						id="user-password"
 					/>
-					{alert !== alert ? (
-						<div className="nothing">incorrect password</div>
-					) : (
-						''
-					)}
+					{!alert ? <div className="nothing">incorrect password</div> : ''}
 				</div>
 				<div className="input-button">
 					<button type="submit">Sign In</button>

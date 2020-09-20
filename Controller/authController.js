@@ -59,18 +59,21 @@ module.exports.login_post = async (req, res) => {
 };
 
 module.exports.auth_user = async (req, res) => {
-	const user = await Users.findOne({
-		where: { id: req.params.id },
-	})
-		.then((data) =>
-			res.send({
-				email: data.email,
-				firstname: data.firstname,
-				lastname: data.lastname,
-				state: data.state,
-				zipcode: data.zipcode,
-				streetaddress: data.streetaddress,
-			})
-		)
-		.catch((err) => console.log(err));
+	if (req.params.id !== null) {
+		const user = await Users.findOne({
+			where: { id: req.params.id },
+		})
+			.then((data) =>
+				res.send({
+					email: data.email,
+					firstname: data.firstname,
+					lastname: data.lastname,
+					state: data.state,
+					zipcode: data.zipcode,
+					streetaddress: data.streetaddress,
+				})
+				// console.log(data)
+			)
+			.catch((err) => console.log(err));
+	}
 };
