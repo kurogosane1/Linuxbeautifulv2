@@ -19,7 +19,6 @@ export default function Login() {
 		});
 	};
 
-	const [resp, setRes] = useState({});
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		console.log(user);
@@ -32,7 +31,7 @@ export default function Login() {
 					setUsers({ type: 'LOG_USER_IN' });
 					history.push(`/${res.data.id}`);
 				} else {
-					setAlert(!alert);
+					setAlert(true);
 				}
 			});
 		} else {
@@ -40,8 +39,6 @@ export default function Login() {
 				history.push(`/${res.data.id}`);
 			});
 		}
-
-		console.log(resp);
 	};
 	return (
 		<div className="login">

@@ -1,9 +1,10 @@
 import React, { useState, useContext, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import VS from '../Assets/DesktopEnv.svg';
 import { CartContext } from '../Store/CartStore';
 
-
 export default function Cart() {
+	let history = useHistory();
 	const { Cart, cartTotal, dispatch, dispatch2 } = useContext(CartContext);
 
 	const [totalamt, setTotalamt] = useState(0);
@@ -24,7 +25,14 @@ export default function Cart() {
 		setTotalamt(amt);
 	}, [cartTotal]);
 
-	useEffect(() => {});
+	const checkUser = () => {
+		const token = localStorage.getItem('token');
+		if (token === null || token === '') {
+			history.push('/login');
+		} else {
+			console.log('Do something');
+		}
+	};
 
 	const removeListing = async (id) => {
 		await dispatch({ type: 'DELETE_CART_ITEM', id });
@@ -89,7 +97,7 @@ export default function Cart() {
 				<div className="totalpayment">
 					<h2>Your total is $ ${totalamt}</h2>
 					<div className="proceed">
-						<button>Proceed to payment</button>
+						<button onClick={checkUser}>Proceed to payment</button>
 					</div>
 				</div>
 			)}

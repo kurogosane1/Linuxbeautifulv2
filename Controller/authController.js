@@ -31,7 +31,7 @@ module.exports.signup_post = async (req, res) => {
 			.then((submit) => res.send({ id: submit.id }))
 			.catch((err) => console.log(err));
 	} else {
-		return res.send('email already exists');
+		return res.sendstatus(400);
 	}
 };
 
@@ -50,11 +50,27 @@ module.exports.login_post = async (req, res) => {
 			return res.status(400).send('Email is not found');
 		} else {
 			//Create ad assign a token
-			const token = await jwt.sign(
-				{ id: user.id, exp: Math.floor(Date.now() / 1000) - 30 },
-				process.env.TOKEN_SECRET
-			);
+			const token = await jwt.sign({ id: user.id }, process.env.TOKEN_SECRET, {
+				expiresIn: '1h',
+			});
 			await res.status(202).header('authToken', token).send({ id: user.id });
 		}
 	}
+};
+
+module.exports.auth_user = async (req, res) => {
+	const user = await Users.findOne({
+		where: { id: req.params.id },
+	})
+		.then((data) =>
+			res.send({
+				email: data.email,
+				firstname: data.firstname,
+				lastname: data.lastname,
+				state: data.state,
+				zipcode: data.zipcode,
+				streetaddress: data.streetaddress,
+			})
+		)
+		.catch((err) => console.log(err));
 };

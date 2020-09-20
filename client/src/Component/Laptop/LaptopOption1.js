@@ -17,6 +17,7 @@ export default function LaptopOption1() {
 		GPU: GPU[0].name,
 		storage: storage[0].name,
 		Total: 0,
+		type: 'LAPTOP',
 		id: uuidv4(),
 	});
 	const [Total, setTotal] = useState({
@@ -24,6 +25,7 @@ export default function LaptopOption1() {
 		RAM: RAM[0].cost,
 		GPU: GPU[0].cost,
 		storage: storage[0].cost,
+		type: 'LAPTOP',
 		id: Laptop.id,
 	});
 
