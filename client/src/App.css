@@ -2,6 +2,8 @@
 	--text-font: rgb(211, 211, 211);
 	--backgroudselected: rgb(43, 43, 43);
 	--text-hoover: white;
+	--sub-heading-color: rgb(170, 170, 170);
+	--body-background-color: rgb(238, 238, 238);
 }
 
 * {
@@ -13,7 +15,7 @@
 }
 
 body {
-	background-color: rgb(228, 228, 228);
+	background-color: var(--body-background-color);
 }
 
 Nav {
@@ -23,14 +25,13 @@ Nav {
 	grid-template-columns: repeat(4, 1fr);
 	grid-template-rows: 1fr;
 	grid-template-areas: 'a b c d';
-
-	/* grid-template-columns: 20% 1fr 1fr 20%; */
 	align-items: center;
-	justify-items: space-evenly;
+	justify-content: center;
 	place-items: center;
 }
 .nav-logo {
 	grid-area: b;
+	width: 100%;
 	align-items: center;
 }
 .nav-logo > h2 {
@@ -38,9 +39,9 @@ Nav {
 }
 .nav-menu {
 	grid-area: c;
-	grid-column: 3/4;
-	justify-items: center;
-	align-content: center;
+	width: 100%;
+	display: flex;
+	justify-content: space-evenly;
 }
 
 .tags {
@@ -49,7 +50,6 @@ Nav {
 	color: var(--text-font);
 	font: 20%;
 	font-weight: 500;
-	margin: 0 20px;
 }
 .tags:hover,
 .nav-logo:hover {
@@ -62,7 +62,7 @@ Nav {
 .content {
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
-	grid-template-rows: auto;
+	grid-template-rows: repeat(auto, minmax(100px, 1fr));
 	grid-template-areas:
 		'e con con e'
 		'e con con e'
@@ -73,24 +73,86 @@ Nav {
 .laptopsection {
 	grid-area: con;
 	grid-column: 2/4;
+}
+.sub-nav {
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
-	grid-template-rows: auto;
+	grid-template-rows: repeat(auto, 1fr);
 	grid-template-areas:
-		'nav1 nav2'
+		'n1 n2'
 		'cont1 cont1'
 		'cont1 cont1';
 	justify-items: center;
+	justify-content: center;
 	align-items: center;
+	align-content: center;
+	padding-bottom: 10px;
+	padding-top: 1rem;
+	border-bottom: 2px white solid;
 }
 
 .sub-nav-left {
-	grid-area: nav1;
+	grid-area: n1;
+	width: 100%;
+}
+.sub-nav-left > h2 {
+	align-items: flex-start;
 }
 
 .sub-nav-right {
-	grid-area: nav2;
+	width: 100%;
+	grid-area: n2;
+	justify-content: space-evenly;
 }
+
+.sub-nav-right ul {
+	list-style: none;
+	display: flex;
+	flex: 1;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-around;
+}
+.blue {
+	color: black;
+	font-size: 16px;
+}
+.blue:hover {
+	cursor: pointer;
+	color: var(--text-hoover);
+}
+
 .sub-view {
+	margin-top: 10px;
 	grid-area: cont1;
+}
+
+/* This is for the laptop content section */
+.container {
+	margin-top: 1rem;
+	grid-area: con;
+	width: 100%;
+}
+.main-heading {
+	text-align: center;
+	font-size: 5.5rem;
+}
+.sub-main-heading {
+	display: flex;
+	justify-content: space-between;
+	color: var(--sub-heading-color);
+	font-size: 3.5rem;
+	text-align: center;
+}
+.sub-container {
+	height: 100%;
+}
+strong {
+	color: black;
+}
+.overview-specs {
+	margin-top: 1rem;
+	font-size: 2.5rem;
+	/* text-align: center; */
+	color: var(--sub-heading-color);
 }
