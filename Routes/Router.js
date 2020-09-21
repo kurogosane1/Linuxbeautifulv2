@@ -21,7 +21,8 @@ router.get('/user', async (req, res) => {
 });
 
 router.post('/login', auth.login_post);
+router.get('/login', auth.login_get);
 router.post('/register', auth.signup_post);
-router.get('/:id', auth.auth_user);
+router.get('/user/:id', auth.auth_user);
 
 module.exports = router;

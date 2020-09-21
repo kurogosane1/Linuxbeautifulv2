@@ -36,11 +36,18 @@ module.exports.signup_post = async (req, res) => {
 };
 
 module.exports.login_get = (req, res) => {
-	res.send('This is get from Login side');
+	// verify token
+	const token = req.headers.auth;
+	try {
+		var decoded = jwt.verify(token, process.env.TOKEN_SECRET);
+		res.send({ id: decoded.id });
+	} catch (err) {
+		console.log(err);
+	}
 };
 
 module.exports.login_post = async (req, res) => {
-	console.log(req.body);
+	
 	const user = await Users.findOne({ where: { email: req.body.email } });
 	if (user === null) {
 		res.sendStatus(400).send('email not found');
@@ -63,7 +70,8 @@ module.exports.auth_user = async (req, res) => {
 		const user = await Users.findOne({
 			where: { id: req.params.id },
 		})
-			.then((data) =>
+			.then((data) => {
+				console.log(data);
 				res.send({
 					email: data.email,
 					firstname: data.firstname,
@@ -71,9 +79,9 @@ module.exports.auth_user = async (req, res) => {
 					state: data.state,
 					zipcode: data.zipcode,
 					streetaddress: data.streetaddress,
-				})
-				// console.log(data)
-			)
+				});
+			})
+
 			.catch((err) => console.log(err));
 	}
 };

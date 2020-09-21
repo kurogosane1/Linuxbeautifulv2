@@ -15,6 +15,9 @@ export default function UserAccount() {
 	useEffect(() => {
 		checkUser();
 	}, []);
+	// useEffect(() => {
+	// 	console.log(getUser);
+	// }, [getUser]);
 
 	const checkUser = () => {
 		let mounted = false;

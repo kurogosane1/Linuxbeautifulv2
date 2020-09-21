@@ -13,7 +13,7 @@ export default function Login() {
 		password: '',
 	});
 
-	const [alert, setAlert] = useState(false);
+	const [alert] = useState(false);
 	const handleChange = (e) => {
 		setUser({
 			...user,
@@ -21,27 +21,25 @@ export default function Login() {
 		});
 	};
 
-	const handleSubmit = async (e) => {
+	const handleSubmit = (e) => {
 		e.preventDefault();
-		console.log(user);
 		const check = localStorage.getItem('token');
-		if (check === null || check === '') {
+		if (Cart === null && Cart === '' && check === null && check === '') {
 			axios.post('/login', user).then((res) => {
-				console.log(res.headers);
-				if (res.status === 202) {
-					localStorage.setItem('token', res.headers.authtoken);
-					setUsers({ type: 'LOG_USER_IN' });
-					// history.push(`/${res.data.id}`);
-					if (Cart != null) {
-						history.goBack();
-					}
-				} else {
-					setAlert(true);
-				}
+				localStorage.setItem('token', res.headers.authtoken);
+				history.push(`/user/${res.data.id}`);
+				setUsers({ type: 'LOG_USER_IN' });
+			});
+		}
+		if ((check === null && Cart !== null) || (check === '' && Cart !== '')) {
+			axios.post('/login', user).then((res) => {
+				localStorage.setItem('token', res.headers.authtoken);
+				setUsers({ type: 'LOG_USER_IN' });
+				history.goBack();
 			});
 		} else {
-			axios.post('/login', user).then((res) => {
-				history.push(`/${res.data.id}`);
+			axios.get('/login', { headers: { check } }).then((res) => {
+				history.push(`/user/${res.data.id}`);
 			});
 		}
 	};
@@ -72,7 +70,12 @@ export default function Login() {
 					{!alert ? <div className="nothing">incorrect password</div> : ''}
 				</div>
 				<div className="input-button">
-					<button type="submit">Sign In</button>
+					<input
+						type="submit"
+						value="Sign In"
+						onClick={handleSubmit}
+						className="final-click"
+					/>
 				</div>
 			</form>
 			<div className="input-sign-up">

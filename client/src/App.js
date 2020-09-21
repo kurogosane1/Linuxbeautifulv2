@@ -24,32 +24,34 @@ function App() {
 					<Router>
 						<div className="App">
 							<Nav />
-							<Switch>
-								<Route exact path="/">
-									<main />
-								</Route>
-								<Route path="/laptop">
-									<Laptop />
-								</Route>
-								<Route path="/login">
-									<Login />
-								</Route>
-								<Route path="/signup">
-									<NewUser />
-								</Route>
-								<Route path="/Tablet">
-									<Tablet />
-								</Route>
-								<Route path="/AllinOne">
-									<AIO />
-								</Route>
-								<Route path="/Cart">
-									<Cart />
-								</Route>
-								<Route exact path="/:id">
-									<UserAccount />
-								</Route>
-							</Switch>
+							<div className="content">
+								<Switch>
+									<Route exact path="/">
+										<main />
+									</Route>
+									<Route path="/laptop">
+										<Laptop />
+									</Route>
+									<Route path="/login">
+										<Login />
+									</Route>
+									<Route path="/signup">
+										<NewUser />
+									</Route>
+									<Route path="/Tablet">
+										<Tablet />
+									</Route>
+									<Route path="/AllinOne">
+										<AIO />
+									</Route>
+									<Route path="/Cart">
+										<Cart />
+									</Route>
+									<Route exact path="/user/:id">
+										<UserAccount />
+									</Route>
+								</Switch>
+							</div>
 						</div>
 					</Router>
 				</CartStoreContext>
