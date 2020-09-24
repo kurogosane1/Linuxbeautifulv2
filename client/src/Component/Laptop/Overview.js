@@ -1,5 +1,7 @@
 import React from 'react';
 import VS from '../../Assets/DesktopEnv.svg';
+import multi from '../../Assets/DeepingMulti.svg';
+import task from '../../Assets/FlatMac2.svg';
 
 export default function Overview() {
 	return (
@@ -65,11 +67,26 @@ export default function Overview() {
 				</div>
 			</div>
 			<div className="sub-container">
-				<div className="sub-heading">
+				<div className="sub-sub-main-heading ">
 					<h1>Perfomance</h1>
 				</div>
-				<div className="overview-description">
-					<h1>Great Power mean Greater Potential</h1>
+				<div>
+					<img src={multi} alt="" />
+				</div>
+				<div className="overview-description sub-sub-main-heading">
+					<h1>Great Power means Greater Potential</h1>
+					<div className="overview-specs">
+						<h4>
+							The Deepin Pro elevates the notebook to a whole new level of
+							performance and portability. Where your ideas take you, you'll
+							acheive it with performance that won't compromise thanks to its
+							powerful Processor, fast-storage and more
+						</h4>
+						<h4>
+							Code, Play, Design and more. Whereever your ideas take you, Deepin
+							Pro will help you
+						</h4>
+					</div>
 					<h4>
 						The Deepin Pro elevates the notebook to a whole new level of
 						performance and portability. Where your ideas take you, you'll
@@ -81,28 +98,33 @@ export default function Overview() {
 						Pro will help you
 					</h4>
 				</div>
+				<br />
+				<br />
 				<div className="sub-information">
-					<div className="col">
+					<div className="col1">
 						<h4>Up to</h4>
 						<h1>128gb</h1>
 						<h4>Memory</h4>
 					</div>
-					<div className="col">
+					<div className="col2">
 						<h4>Up to</h4>
 						<h1>14</h1>
 						<h4>Core</h4>
 					</div>
-					<div className="col">
+					<div className="col3">
 						<h4>Up to</h4>
 						<h1>2.28G/s</h1>
 						<h4>SSD read speeds</h4>
 					</div>
-					<div className="col">
+					<div className="col4">
 						<h4>Up to</h4>
 						<h1>10 hrs</h1>
 						<h4>Battery Life</h4>
 					</div>
 				</div>
+			</div>
+			<div className="sub-container">
+				
 			</div>
 		</div>
 	);

@@ -44,174 +44,178 @@ export default function LaptopOption1() {
 	};
 
 	return (
-		<div className="opt-container">
-			<div className="opt-heading">
+		<div className="opt-container container">
+			<div className="opt-heading sub-sub-main-heading">
 				<h1>Customize your DeepinPro 15.6 inch Space Gray</h1>
 			</div>
-			<div className="opt-col1">
-				<div className="opt-image">
-					<img src={VS} alt="" />
-				</div>
-			</div>
-			<div className="opt-col2">
-				<div className="opt-spec-list">
-					<ul>
-						<li>
-							<span>{Laptop.Processor}</span>
-						</li>
-						<li>
-							<span>{Laptop.RAM}</span>
-						</li>
-						<li>
-							<span>{Laptop.GPU}</span>
-						</li>
-						<li>
-							<span>{Laptop.storage}</span>
-						</li>
-					</ul>
-				</div>
-				<div className="section">
-					<div className="opt-heading1">
-						<h3>Processor</h3>
-						<span>Which processor is right for you</span>
+			<div className="options">
+				<div className="opt-col1">
+					<div className="opt-image">
+						<img src={VS} alt="" />
 					</div>
-					<div className="processor-option">
+				</div>
+				<div className="opt-col2">
+					<div className="opt-spec-list option-spec">
 						<ul>
-							{Processor.filter((proc, index) => index < 2).map((processor) => {
-								return (
-									<li
-										key={processor.id}
-										className={
-											Laptop.Processor === processor.name
-												? 'options-listing-checked'
-												: 'options-listing'
-										}>
-										<label>
-											{processor.name}
-											<input
-												type="radio"
+							<li>
+								<span>{Laptop.Processor}</span>
+							</li>
+							<li>
+								<span>{Laptop.RAM}</span>
+							</li>
+							<li>
+								<span>{Laptop.GPU}</span>
+							</li>
+							<li>
+								<span>{Laptop.storage}</span>
+							</li>
+						</ul>
+					</div>
+					<div className="section">
+						<div className="opt-heading1 sub-sub-sub-heading">
+							<h3>Processor</h3>
+							<span>Which processor is right for you</span>
+						</div>
+						<div className="processor-option">
+							<ul>
+								{Processor.filter((proc, index) => index < 2).map(
+									(processor) => {
+										return (
+											<li
 												key={processor.id}
-												className="options-given"
-												name="Processor"
-												value={processor.name}
-												onChange={handleClick}
-												cost={processor.cost}
-											/>
-										</label>
-									</li>
-								);
-							})}
-						</ul>
+												className={
+													Laptop.Processor === processor.name
+														? 'options-listing-checked'
+														: 'options-listing'
+												}>
+												<label>
+													{processor.name}
+													<input
+														type="radio"
+														key={processor.id}
+														className="options-given option-spec"
+														name="Processor"
+														value={processor.name}
+														onChange={handleClick}
+														cost={processor.cost}
+													/>
+												</label>
+											</li>
+										);
+									}
+								)}
+							</ul>
+						</div>
 					</div>
-				</div>
-				<div className="section">
-					<div className="opt-heading1">
-						<h3>RAM</h3>
-						<span>Choose the Proper Memory for you</span>
-					</div>
-					<div className="processor-option">
-						<ul>
-							{RAM.filter((ra, index) => index < 3).map((ram) => {
-								return (
-									<li
-										key={ram.id}
-										className={
-											Laptop.RAM === ram.name
-												? 'options-listing-checked'
-												: 'options-listing'
-										}>
-										<label>
-											{ram.name}
-											<input
-												type="radio"
-												key={ram.id}
-												className="options-given"
-												name="RAM"
-												value={ram.name}
-												onChange={handleClick}
-												cost={ram.cost}
-											/>
-										</label>
-									</li>
-								);
-							})}
-						</ul>
-					</div>
-				</div>
-				<div className="section">
-					<div className="opt-heading1">
-						<h3>Storage</h3>
-						<span>Choose the correct amount of storage you require</span>
-					</div>
-					<div className="processor-option">
-						<ul>
-							{storage
-								.filter((stor, index) => index < 3)
-								.map((storage) => {
+					<div className="section">
+						<div className="opt-heading1 sub-sub-sub-heading">
+							<h3>RAM</h3>
+							<span>Choose the Proper Memory for you</span>
+						</div>
+						<div className="processor-option">
+							<ul>
+								{RAM.filter((ra, index) => index < 3).map((ram) => {
 									return (
 										<li
-											key={storage.id}
+											key={ram.id}
 											className={
-												Laptop.storage === storage.name
+												Laptop.RAM === ram.name
 													? 'options-listing-checked'
 													: 'options-listing'
 											}>
 											<label>
-												{storage.name}
+												{ram.name}
 												<input
 													type="radio"
-													key={storage.id}
-													className="options-given"
-													name="storage"
-													value={storage.name}
+													key={ram.id}
+													className="options-given option-spec"
+													name="RAM"
+													value={ram.name}
 													onChange={handleClick}
-													cost={storage.cost}
+													cost={ram.cost}
 												/>
 											</label>
 										</li>
 									);
 								})}
-						</ul>
+							</ul>
+						</div>
 					</div>
-				</div>
-				<div className="section">
-					<div className="opt-heading1">
-						<h3>GPU</h3>
-						<span>Select the require Graphical Power that you may need</span>
+					<div className="section">
+						<div className="opt-heading1 sub-sub-sub-heading">
+							<h3>Storage</h3>
+							<span>Choose the correct amount of storage you require</span>
+						</div>
+						<div className="processor-option">
+							<ul>
+								{storage
+									.filter((stor, index) => index < 3)
+									.map((storage) => {
+										return (
+											<li
+												key={storage.id}
+												className={
+													Laptop.storage === storage.name
+														? 'options-listing-checked'
+														: 'options-listing'
+												}>
+												<label>
+													{storage.name}
+													<input
+														type="radio"
+														key={storage.id}
+														className="options-given option-spec"
+														name="storage"
+														value={storage.name}
+														onChange={handleClick}
+														cost={storage.cost}
+													/>
+												</label>
+											</li>
+										);
+									})}
+							</ul>
+						</div>
 					</div>
-					<div className="processor-option">
-						<ul className="options-list">
-							{GPU.filter((gpu, index) => index < 2).map((GPU) => {
-								return (
-									<li
-										key={GPU.id}
-										className={
-											Laptop.GPU === GPU.name
-												? 'options-listing-checked'
-												: 'options-listing'
-										}>
-										<label>
-											{GPU.name}
-											<input
-												type="radio"
-												key={GPU.id}
-												className="options-given"
-												name="GPU"
-												value={GPU.name}
-												onChange={handleClick}
-												cost={GPU.cost}
-											/>
-										</label>
-									</li>
-								);
-							})}
-						</ul>
+					<div className="section">
+						<div className="opt-heading1 sub-sub-sub-heading">
+							<h3>GPU</h3>
+							<span>Select the require Graphical Power that you may need</span>
+						</div>
+						<div className="processor-option">
+							<ul className="options-list">
+								{GPU.filter((gpu, index) => index < 2).map((GPU) => {
+									return (
+										<li
+											key={GPU.id}
+											className={
+												Laptop.GPU === GPU.name
+													? 'options-listing-checked'
+													: 'options-listing'
+											}>
+											<label>
+												{GPU.name}
+												<input
+													type="radio"
+													key={GPU.id}
+													className="options-given option-spec"
+													name="GPU"
+													value={GPU.name}
+													onChange={handleClick}
+													cost={GPU.cost}
+												/>
+											</label>
+										</li>
+									);
+								})}
+							</ul>
+						</div>
 					</div>
 				</div>
 			</div>
 			<div className="final-decision">
 				<div className="total">
-					<h1>{`Total : ${
+					<h1>{`Total : $${
 						Total.Processor +
 						Total.GPU +
 						Total.RAM +
@@ -221,7 +225,7 @@ export default function LaptopOption1() {
 						150
 					}`}</h1>
 				</div>
-				<button onClick={addToCart} className="final-click">
+				<button onClick={addToCart} className="final-click ">
 					Add to Cart
 				</button>
 			</div>

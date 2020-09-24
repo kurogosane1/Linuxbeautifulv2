@@ -4,6 +4,7 @@
 	--text-hoover: white;
 	--sub-heading-color: rgb(170, 170, 170);
 	--body-background-color: rgb(238, 238, 238);
+	--sub-list: rgb(87, 87, 87);
 }
 
 * {
@@ -16,6 +17,8 @@
 
 body {
 	background-color: var(--body-background-color);
+	height: 100vh;
+	width: 100vw;
 }
 
 Nav {
@@ -102,7 +105,7 @@ Nav {
 .sub-nav-right {
 	width: 100%;
 	grid-area: n2;
-	justify-content: space-evenly;
+	justify-content: space-between;
 }
 
 .sub-nav-right ul {
@@ -146,6 +149,8 @@ Nav {
 }
 .sub-container {
 	height: 100%;
+	margin-top: 3rem;
+	margin-bottom: 3rem;
 }
 strong {
 	color: black;
@@ -155,4 +160,205 @@ strong {
 	font-size: 2.5rem;
 	/* text-align: center; */
 	color: var(--sub-heading-color);
+}
+.sub-sub-main-heading {
+	text-align: center;
+	color: var(--sub-heading-color);
+	font-size: 2.5rem;
+}
+
+.sub-information {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-template-rows: repeat(2, 1fr);
+	grid-template-areas:
+		'col1 col2'
+		'col3 col4';
+	grid-gap: 20px;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+.col1 {
+	grid-area: col1;
+}
+.col1 > h1 {
+	font-size: 3rem;
+}
+.col1 > h4 {
+	font-size: 2rem;
+}
+.col2 {
+	grid-area: col2;
+}
+.col2 > h1 {
+	font-size: 3rem;
+}
+.col2 > h4 {
+	font-size: 2rem;
+}
+.col3 > h1 {
+	font-size: 3rem;
+}
+.col3 > h4 {
+	font-size: 2rem;
+}
+.col4 > h1 {
+	font-size: 3rem;
+}
+.col4 > h4 {
+	font-size: 2rem;
+}
+.col3 {
+	grid-area: col3;
+}
+.col4 {
+	grid-area: col4;
+}
+
+/* This is the laptop sections  */
+.options {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-column-gap: 10%;
+	grid-template-rows: repeat(auto, 1fr);
+	grid-template-areas: '';
+	margin-top: 2rem;
+}
+
+.container {
+	height: 100%;
+}
+.options-heading {
+	text-align: center;
+	margin: 20px 0 20px;
+	margin-bottom: 4rem;
+}
+
+.option-spec ul {
+	list-style: none;
+}
+.option-spec li {
+	line-height: 2.5rem;
+	color: var(--sub-list);
+}
+
+.buttons1,
+.buttons2 {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+	align-content: center;
+	margin: 1rem 0;
+}
+.buttons {
+	padding: 20px;
+	width: 200px;
+	height: 150x;
+	font-size: 1.5rem;
+	border: none;
+	color: var(--text-font);
+	background: var(--backgroudselected);
+	border-radius: 10px;
+	-webkit-box-shadow: -32px 30px 27px -22px rgba(0, 0, 0, 0.43);
+	-moz-box-shadow: -32px 30px 27px -22px rgba(0, 0, 0, 0.43);
+	box-shadow: -32px 30px 27px -22px rgba(0, 0, 0, 0.43);
+}
+
+/* This is the laptop config */
+.opt-heading {
+	color: black;
+	font-size: 1rem;
+	line-height: 3rem;
+}
+ul {
+	list-style: none;
+}
+
+li {
+	line-height: 2.5rem;
+}
+
+.sub-sub-sub-heading {
+	margin-left: 1rem;
+	line-height: 2.5rem;
+	border-bottom: 2px solid grey;
+	margin-bottom: 1rem;
+	margin-top: 1rem;
+}
+.sub-sub-sub-heading h3 {
+	font-size: 1.5rem;
+}
+.sub-sub-sub-heading span {
+	width: 100%;
+	font-size: 1.2rem;
+	line-height: 1rem;
+}
+
+.options--list li {
+	cursor: pointer;
+}
+.options-listing-checked {
+	border: 5px solid blue;
+	border-radius: 2px;
+	width: 100%;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	margin: 1rem 0;
+	text-align: center;
+}
+.options-listing {
+	cursor: pointer;
+	margin: 1rem 0;
+	border: 1px solid grey;
+	width: 100%;
+	border-radius: 2px;
+	text-align: center;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	-webkit-box-shadow: -32px 30px 27px -22px rgba(0, 0, 0, 0.43);
+	-moz-box-shadow: -32px 30px 27px -22px rgba(0, 0, 0, 0.43);
+	box-shadow: -32px 35px 20px -28px rgba(0, 0, 0, 0.43);
+}
+.options-given {
+	display: none;
+	cursor: pointer;
+}
+
+.opt-image {
+	position: sticky;
+}
+.final-decision {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: 1fr 1fr;
+	grid-template-areas:
+		'total1 total1 total1'
+		'but1 but1 but1';
+	align-items: center;
+	margin: 1rem 0;
+	justify-items: center;
+}
+.total {
+	grid-area: total1;
+	grid-column: 2/3;
+	text-align: center;
+	font-size: 1.5rem;
+	margin: 1rem 0;
+}
+.final-click {
+	grid-area: but1;
+	grid-column: 2/3;
+
+	padding: 20px;
+	height: 150x;
+	width: 50%;
+	font-size: 1.5rem;
+	border: none;
+	color: var(--text-font);
+	background: var(--backgroudselected);
+	border-radius: 10px;
+	-webkit-box-shadow: -32px 30px 27px -22px rgba(0, 0, 0, 0.43);
+	-moz-box-shadow: -32px 30px 27px -22px rgba(0, 0, 0, 0.43);
+	box-shadow: -32px 30px 27px -22px rgba(0, 0, 0, 0.43);
 }
