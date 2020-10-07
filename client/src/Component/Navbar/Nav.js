@@ -19,7 +19,7 @@ export default function Nav() {
 			setUsers({ type: 'LOG_USER-OUT' });
 		} else {
 		}
-	}, [users.userLoggedIn]);
+	}, [users.userLoggedIn, id]);
 
 	const checkAuth = () => {
 		const data = localStorage.getItem('token');
@@ -42,39 +42,43 @@ export default function Nav() {
 				<h2>LB</h2>
 			</div>
 			<div className="nav-menu">
-			<NavLink className="tags" to="/">
-				Main
-			</NavLink>
-
-			<NavLink className="tags" to="/laptop">
-				Laptop
-			</NavLink>
-
-			<NavLink className="tags" to="/Tablet">
-				iTablet
-			</NavLink>
-
-			<NavLink className="tags" exact to="/AllinOne">
-				iDeep
-			</NavLink>
-
-			{users.userLoggedIn === false ? (
-				<NavLink className="tags" to="/login" onClick={checkAuth}>
-					SignIn
+				<NavLink className="tags" to="/">
+					Main
 				</NavLink>
-			) : (
-				<NavLink className="tags" to={`/user/${id}`} onClick={checkAuth}>
-					User
-				</NavLink>
-			)}
 
-			{Cart.length > 0 ? (
-				<NavLink className="tags" to="/Cart">
-					{`Cart ${Cart.length}`}
+				<NavLink className="tags" to="/laptop">
+					Laptop
 				</NavLink>
-			) : (
-				''
-			)}
+
+				<NavLink className="tags" to="/Tablet">
+					iTablet
+				</NavLink>
+
+				<NavLink className="tags" exact to="/AllinOne">
+					iDeep
+				</NavLink>
+
+				{users.userLoggedIn === false ? (
+					<NavLink className="tags" exact to="/login" onClick={checkAuth}>
+						SignIn
+					</NavLink>
+				) : (
+					<NavLink
+						className="tags"
+						onChange={checkAuth}
+						to={`/user/${id}`}
+						onClick={checkAuth}>
+						User
+					</NavLink>
+				)}
+
+				{Cart.length > 0 ? (
+					<NavLink className="tags" to="/Cart">
+						{`Cart ${Cart.length}`}
+					</NavLink>
+				) : (
+					''
+				)}
 			</div>
 		</nav>
 	);

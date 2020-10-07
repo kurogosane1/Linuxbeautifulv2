@@ -3,7 +3,7 @@ import { Route, NavLink, useRouteMatch } from 'react-router-dom';
 import LaptopOption1 from './LaptopOption1';
 import LaptopBuynow from './LaptopBuynow';
 import Overview from './Overview';
-import LaptopDeep from './LaptopDeep';
+
 import LaptopOption2 from './LaptopOption2';
 
 export default function Laptop() {
@@ -22,11 +22,11 @@ export default function Laptop() {
 								Overview
 							</NavLink>
 						</li>
-						<li className="sub-nav-list">
+						{/* <li className="sub-nav-list">
 							<NavLink className="tags blue" to={`${url}/DeepOS`}>
 								DeepOS
 							</NavLink>
-						</li>
+						</li> */}
 						<li className="sub-nav-list">
 							<NavLink className="tags blue" to={`${url}/buynow`}>
 								Buy Now
@@ -39,9 +39,9 @@ export default function Laptop() {
 				<Route exact path={`${path}`}>
 					<Overview />
 				</Route>
-				<Route exact path={`${path}/DeepOS`}>
+				{/* <Route exact path={`${path}/DeepOS`}>
 					<LaptopDeep />
-				</Route>
+				</Route> */}
 				<Route exact path={`${path}/buynow`}>
 					<LaptopBuynow />
 				</Route>

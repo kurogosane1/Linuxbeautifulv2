@@ -31,13 +31,13 @@ export default function Login() {
 				setUsers({ type: 'LOG_USER_IN' });
 			});
 		}
-		if ((check === null && Cart !== null) || (check === '' && Cart !== '')) {
+		if (check === null && Cart !== null) {
 			axios.post('/login', user).then((res) => {
 				localStorage.setItem('token', res.headers.authtoken);
 				setUsers({ type: 'LOG_USER_IN' });
 				history.goBack();
 			});
-		} else {
+		} if(check != null && Cart ===null) {
 			axios.get('/login', { headers: { check } }).then((res) => {
 				history.push(`/user/${res.data.id}`);
 			});

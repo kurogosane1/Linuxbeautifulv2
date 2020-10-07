@@ -7,7 +7,7 @@ import axios from 'axios';
 
 export default function UserAccount() {
 	let history = useHistory();
-	const { setUsers } = useContext(UserContext);
+	const { users, setUsers } = useContext(UserContext);
 	const { id } = useParams();
 
 	const [getUser, setgetUser] = useState({});
@@ -15,9 +15,9 @@ export default function UserAccount() {
 	useEffect(() => {
 		checkUser();
 	}, []);
-	// useEffect(() => {
-	// 	console.log(getUser);
-	// }, [getUser]);
+	useEffect(() => {
+		console.log(getUser);
+	}, [getUser]);
 
 	const checkUser = () => {
 		let mounted = false;
@@ -31,6 +31,7 @@ export default function UserAccount() {
 					.then((res) => setgetUser(res.data))
 					.catch((err) => console.log(err));
 				setUsers({ type: 'LOG_USER_IN' });
+				setgetUser(users);
 			} else {
 				console.log();
 			}
