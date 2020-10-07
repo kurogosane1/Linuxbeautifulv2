@@ -1,7 +1,7 @@
 import React from 'react';
 import VS from '../../Assets/DesktopEnv.svg';
 import multi from '../../Assets/DeepingMulti.svg';
-import task from '../../Assets/FlatMac2.svg';
+// import task from '../../Assets/FlatMac2.svg';
 
 export default function Overview() {
 	return (

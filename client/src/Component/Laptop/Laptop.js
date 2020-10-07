@@ -39,16 +39,18 @@ export default function Laptop() {
 				<Route exact path={`${path}`}>
 					<Overview />
 				</Route>
-				<Route path={`${path}/DeepOS`}>
+				<Route exact path={`${path}/DeepOS`}>
 					<LaptopDeep />
 				</Route>
 				<Route exact path={`${path}/buynow`}>
 					<LaptopBuynow />
 				</Route>
-				<Route path={`${path}/buynow/option1`}>
+				<Route exact path={`${path}/buynow/option1`}>
 					<LaptopOption1 />
 				</Route>
-				<Route path={`${path}/buynow/option2`} component={LaptopOption2} />
+				<Route exact path={`${path}/buynow/option2`}>
+					<LaptopOption2 />
+				</Route>
 			</div>
 		</div>
 	);

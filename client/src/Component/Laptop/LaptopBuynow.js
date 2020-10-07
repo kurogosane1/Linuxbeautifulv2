@@ -8,10 +8,12 @@ export default function LaptopBuynow() {
 
 	const dothis = (e) => {
 		let option = e.target.value;
+		console.log(`${url}/${option}`);
 		history.push(`${url}/${option}`);
 	};
+
 	return (
-		<div className="options-given container">
+		<div className="option-given container">
 			<div className="options-heading ">
 				<h3 className="main-heading">15.6 inch DeepinPro</h3>
 				<span className="small-span">
