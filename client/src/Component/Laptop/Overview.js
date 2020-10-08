@@ -1,6 +1,7 @@
 import React from 'react';
 import VS from '../../Assets/DesktopEnv.svg';
 import multi from '../../Assets/DeepingMulti.svg';
+import Final from '../../Assets/DeepinV2.svg';
 // import task from '../../Assets/FlatMac2.svg';
 
 export default function Overview() {
@@ -124,7 +125,7 @@ export default function Overview() {
 				</div>
 			</div>
 			<div className="sub-container">
-				
+				<img src={Final} alt="" />
 			</div>
 		</div>
 	);
