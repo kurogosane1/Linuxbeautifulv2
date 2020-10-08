@@ -362,3 +362,9 @@ li {
 	-moz-box-shadow: -32px 30px 27px -22px rgba(0, 0, 0, 0.43);
 	box-shadow: -32px 30px 27px -22px rgba(0, 0, 0, 0.43);
 }
+
+/* main page */
+.front-page-container {
+	grid-area: con;
+	grid-column: 2/4;
+}

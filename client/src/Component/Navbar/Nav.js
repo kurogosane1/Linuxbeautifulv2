@@ -42,7 +42,7 @@ export default function Nav() {
 				<h2>LB</h2>
 			</div>
 			<div className="nav-menu">
-				<NavLink className="tags" to="/">
+				<NavLink className="tags" exact to="/">
 					Main
 				</NavLink>
 

@@ -15,6 +15,7 @@ import UserAccount from './Component/UserAccount/UserAccount';
 import UserStoreContext from './Store/userStore';
 import Tablet from './Component/Tablet/Tablet';
 import AIO from './Component/AllinOne/iDeep';
+import Main from './Component/Main/main';
 
 function App() {
 	return (
@@ -27,7 +28,7 @@ function App() {
 							<div className="content">
 								<Switch>
 									<Route exact path="/">
-										<main />
+										<Main />
 									</Route>
 									<Route path="/laptop">
 										<Laptop />
