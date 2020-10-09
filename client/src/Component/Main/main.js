@@ -1,6 +1,7 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 import VS from '../../Assets/DesktopEnv.svg';
+import iTablet from '../../Assets/iTablet2.svg';
 
 export default function Main() {
 	let history = useHistory();
@@ -31,7 +32,7 @@ export default function Main() {
 						<h3>iTablet</h3>
 					</div>
 					<div className="picture">
-						<img src={VS} alt="" />
+						<img src={iTablet} alt="" />
 					</div>
 					<div className="ontop-text">
 						<span>A FUTURE</span>

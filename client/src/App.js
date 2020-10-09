@@ -16,6 +16,7 @@ import UserStoreContext from './Store/userStore';
 import Tablet from './Component/Tablet/Tablet';
 import AIO from './Component/AllinOne/iDeep';
 import Main from './Component/Main/main';
+import TabletNav from './Component/Tablet/TabletNav';
 
 function App() {
 	return (
@@ -40,7 +41,7 @@ function App() {
 										<NewUser />
 									</Route>
 									<Route path="/Tablet">
-										<Tablet />
+										<TabletNav />
 									</Route>
 									<Route path="/AllinOne">
 										<AIO />

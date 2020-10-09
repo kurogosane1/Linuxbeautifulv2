@@ -389,3 +389,12 @@ li {
 	grid-area: con;
 	grid-column: 2/4;
 }
+
+.another-version {
+	display: grid;
+	grid-template-columns: 2fr 3fr;
+}
+
+.sub-col1 > span {
+	color: var(--sub-list);
+}
