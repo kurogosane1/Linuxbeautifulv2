@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import VS from '../Assets/DesktopEnv.svg';
+import tab2 from '../Assets/iTablet3.svg';
 import { CartContext } from '../Store/CartStore';
 
 export default function Cart() {
@@ -9,18 +10,9 @@ export default function Cart() {
 
 	const [totalamt, setTotalamt] = useState(0);
 	useEffect(() => {
+		console.log(Cart);
 		const amt = cartTotal
-			.map((total) => {
-				return (
-					total.Processor +
-					total.RAM +
-					total.GPU +
-					total.storage +
-					200 +
-					200 +
-					150
-				);
-			})
+			.map((total) => total.Total)
 			.reduce((a, b) => a + b, 0);
 		setTotalamt(amt);
 	}, [cartTotal]);
@@ -30,7 +22,7 @@ export default function Cart() {
 		if (token === null || token === '') {
 			history.push('/login');
 		} else {
-			console.log("There is something wrong")
+			console.log('There is something wrong');
 		}
 	};
 
@@ -44,40 +36,34 @@ export default function Cart() {
 				<h3>Your Cart</h3>
 			</div>
 
-			<ul>
+			<ul className="cart-section">
 				{Cart.map((cart) => {
 					return (
-						<li key={cart.id}>
+						<li key={cart.id} className="cart-listing">
 							<div className="cart-image">
-								<img src={VS} alt="something" />
-							</div>
-							<div className="cart-specs">
-								<ul>
-									<li>{cart.Processor}</li>
-									<li>{cart.RAM}</li>
-									<li>{cart.storage}</li>
-									<li>{cart.GPU}</li>
-								</ul>
+								<img
+									src={
+										cart.Type === 'LAPTOP'
+											? VS
+											: cart.Type === 'TABLET'
+											? tab2
+											: VS
+									}
+									alt="something"
+								/>
 							</div>
 							<div className="total">
 								<h2>
 									{cartTotal
 										.filter((total) => total.id === cart.id)
 										.map((total) => {
-											return (
-												total.Processor +
-												total.RAM +
-												total.GPU +
-												total.storage +
-												200 +
-												200 +
-												150
-											);
+											return `$ ${total.Total}`;
 										})}
 								</h2>
 							</div>
 							<div className="remove">
 								<input
+									className="final-click"
 									type="button"
 									value="Remove Item"
 									onClick={() => {
@@ -90,14 +76,16 @@ export default function Cart() {
 				})}
 			</ul>
 			{totalamt === 0 ? (
-				<div className="totalpayment">
+				<div className="emptypayment">
 					<h2>Your Cart is Empty</h2>
 				</div>
 			) : (
 				<div className="totalpayment">
-					<h2>Your total is $ ${totalamt}</h2>
-					<div className="proceed">
-						<button onClick={checkUser}>Proceed to payment</button>
+					<h2>Your total is $ ${totalamt.toLocaleString()}</h2>
+					<div className=" proceed">
+						<button className="final-click" onClick={checkUser}>
+							Proceed to payment
+						</button>
 					</div>
 				</div>
 			)}

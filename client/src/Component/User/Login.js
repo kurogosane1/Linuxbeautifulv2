@@ -37,18 +37,19 @@ export default function Login() {
 				setUsers({ type: 'LOG_USER_IN' });
 				history.goBack();
 			});
-		} if(check != null && Cart ===null) {
+		}
+		if (check != null && Cart === null) {
 			axios.get('/login', { headers: { check } }).then((res) => {
 				history.push(`/user/${res.data.id}`);
 			});
 		}
 	};
 	return (
-		<div className="login">
+		<div className="Login-Container">
 			<div className="input-heading">
-				<h1>Please Sign in</h1>
+				<h1>Sign In</h1>
 			</div>
-			<form onSubmit={handleSubmit}>
+			<form className="forms" onSubmit={handleSubmit}>
 				<div className="input">
 					<label>Username</label>
 					<input

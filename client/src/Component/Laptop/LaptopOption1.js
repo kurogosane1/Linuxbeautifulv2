@@ -17,7 +17,7 @@ export default function LaptopOption1() {
 		GPU: GPU[0].name,
 		storage: storage[0].name,
 		Total: 0,
-		type: 'LAPTOP',
+		Type: 'LAPTOP',
 		id: uuidv4(),
 	});
 	const [Total, setTotal] = useState({
@@ -25,7 +25,7 @@ export default function LaptopOption1() {
 		RAM: RAM[0].cost,
 		GPU: GPU[0].cost,
 		storage: storage[0].cost,
-		type: 'LAPTOP',
+		Type: 'LAPTOP',
 		id: Laptop.id,
 	});
 
@@ -38,8 +38,20 @@ export default function LaptopOption1() {
 	};
 
 	const addToCart = async (e) => {
+		const final = {
+			id: Total.id,
+			Type: Total.type,
+			Total:
+				Total.storage +
+				Total.GPU +
+				Total.Processor +
+				Total.RAM +
+				200 +
+				200 +
+				150,
+		};
 		await dispatch({ type: 'ADD_CART', cart: Laptop });
-		await dispatch2({ type: 'ADD_CART_TOTAL', cart: Total });
+		await dispatch2({ type: 'ADD_CART_TOTAL', cart: final });
 		await history.push('/Cart');
 	};
 
