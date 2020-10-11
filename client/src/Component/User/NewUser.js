@@ -42,7 +42,7 @@ export default function NewUser() {
 	};
 
 	return (
-		<div className="new-user-form">
+		<div className="Login-Container new-user-form">
 			<div className="newuser">
 				<div className="new-user-heading">
 					<h2>Create a new User</h2>

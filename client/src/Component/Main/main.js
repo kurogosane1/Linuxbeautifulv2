@@ -12,7 +12,7 @@ export default function Main() {
 	return (
 		<>
 			<div className="front-page-container">
-				<div className="container">
+				<div className="main-container">
 					<div className="front-heading">
 						<h3>New DeepPro</h3>
 					</div>
@@ -27,7 +27,7 @@ export default function Main() {
 					</button>
 				</div>
 				<br />
-				<div className="container">
+				<div className="main-container">
 					<div className="front-heading">
 						<h3>iTablet</h3>
 					</div>
@@ -42,7 +42,7 @@ export default function Main() {
 					</button>
 				</div>
 				<br />
-				<div className="container">
+				<div className="main-container">
 					<div className="front-heading">
 						<h3>AllinOne</h3>
 					</div>

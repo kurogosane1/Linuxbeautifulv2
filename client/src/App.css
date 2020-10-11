@@ -368,6 +368,12 @@ li {
 	grid-area: con;
 	grid-column: 2/4;
 }
+.main-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
 .front-heading > h3 {
 	font-size: 3rem;
 	text-align: center;
@@ -377,12 +383,7 @@ li {
 	font-size: 2rem;
 }
 .picture {
-	height: 50%;
 	width: 50%;
-	align-items: center;
-	justify-content: center;
-	justify-items: center;
-	align-content: center;
 }
 
 .tablet-section {
@@ -478,4 +479,10 @@ input[type='password']:focus {
 	box-shadow: border-box;
 }
 
-
+.new-user-heading {
+	margin: 2rem 0;
+}
+.new-user-redirect,
+.new-user-submit {
+	margin: 2rem 0;
+}
